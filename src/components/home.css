@@ -1,0 +1,78 @@
+.wrap {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  /* margin-top:45px; */
+}
+.landing{
+  width:100%;
+  height:100vh;
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  overflow:auto;
+  background-image: url("images/landing-mm.jpg"); /* The image used */
+  background-color: #000000; /* Used if the image is unavailable */
+  height: 100vh; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+.title{
+  position:relative;
+  width:100%;
+  text-align: center;
+  font-size:8vw;
+  font-weight: 300;
+  margin-top:23.5vh;
+  color:white;
+  box-sizing: border-box;
+}
+.login-div{
+  margin: 5vh auto;
+  height:30vh;
+  position:relative;
+}
+.login-h{
+  font-size:2.5vw;
+  margin-bottom:2vh;
+  position:relative;
+  width:100%;
+  text-align: center;
+  font-weight: 300;
+  color:white;
+  box-sizing: border-box;
+}
+.land-desc{
+  padding:1vh;
+  color:white;
+  margin:1vh auto;
+  font-size:1.3vw;
+  font-weight: 300;
+}
+input[type="submit"]{
+  display:none;
+}
+.noerr{
+  font-size:2.5vw;
+  margin-bottom:2vh;
+  position:relative;
+  width:100%;
+  text-align: center;
+  font-weight: 300;
+  text-align: center;
+  display:none;
+  box-sizing: border-box;
+}
+.err{
+  font-size:2vw;
+  margin-bottom:2vh;
+  position:relative;
+  width:100%;
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: 300;
+  text-align: center;
+  color:red;
+}
