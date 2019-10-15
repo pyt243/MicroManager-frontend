@@ -1,6 +1,9 @@
 import React from 'react';
 import {BrowserRouter, Route, Link} from 'react-router-dom'
 import Home from './components/home.js'
+import SignUp from './components/signup.js'
+import Microservices from './components/microservices.js'
+import UserStories from './components/userstories.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -25,6 +28,9 @@ function App() {
     <BrowserRouter>
     <div>
       <Route exact path='/' component={Home} />
+      <Route exact path='/signup' component={SignUp} />
+      <Route exact path = '/microservices' component={Microservices} />
+      <Route path = '/userstories' component={UserStories} />
     </div>
     </BrowserRouter>
   );
