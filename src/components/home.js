@@ -21,7 +21,7 @@ class Home extends Component {
         <div className="form-group">
           <input type="password" placeholder="Password" className="form-control" name="password" required ref="password"/>
         </div>
-        <input type="submit" />
+        <input type="submit" className="home-submit"/>
         </form>
     </div>);
     if(this.state.user.username != "noone")
