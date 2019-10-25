@@ -4,6 +4,7 @@ import Home from './components/home.js'
 import SignUp from './components/signup.js'
 import Microservices from './components/microservices.js'
 import UserStories from './components/userstories.js'
+import AddUserStory from './components/add_user_story.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -31,6 +32,7 @@ function App() {
       <Route exact path='/signup' component={SignUp} />
       <Route exact path = '/microservices' component={Microservices} />
       <Route path = '/userstories' component={UserStories} />
+      <Route path = '/adduserstory' component={AddUserStory} />
     </div>
     </BrowserRouter>
   );

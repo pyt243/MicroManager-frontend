@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import Navbar from './navbar.js'
+import {Link} from 'react-router-dom';
 import './home.css'
 import axios from 'axios'
 import './view_ms.css'
@@ -11,7 +12,7 @@ class UserStories extends Component{
   }
   componentWillMount(){
     this.setState(this.props.location.state)
-    axios.get('/userstory').then(res=>{
+    axios.post('http://localhost:5001/getuserstory',{owner:this.state.user._id}).then(res=>{
         console.log(res.data.user_stories)
         this.setState({user_stories:res.data.user_stories});
     })
@@ -20,9 +21,9 @@ class UserStories extends Component{
     var user_stories = this.state.user_stories
     user_stories = user_stories.map(function(user_story,index){
       return(<div class="each-us">
-        <p class="micro-name">{user_story.desc}</p>
+        <p class="micro-name">{user_story.title}</p>
         <p class="micro-desc">
-          priority: {user_story.priority }, Status: {user_story.status}
+          {user_story.desc}
         </p>
         <div class="micro-but"></div>
       </div>);
@@ -36,9 +37,11 @@ class UserStories extends Component{
           {user_stories}
         </div>
         <div class="add-m">
+        <Link to={{pathname:"/adduserstory",state:{user:this.state.user}}}>
           <button class="add-b">
-            <a>Add a User Story</a>
+            Add a User Story
           </button>
+        </Link>
         </div>
       </div>
     )
