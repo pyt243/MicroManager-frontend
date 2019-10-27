@@ -25,9 +25,13 @@ class UserStories extends Component{
         <p class="micro-desc">
           {user_story.desc}
         </p>
-        <div class="micro-but"></div>
+        <div class="micro-but">
+        <Link to={{pathname:"/updateuserstory",state:{user:this.state.user,user_story_id:user_story._id}}}>
+          <button className="m-up" id={"euub"+index}>Update</button>
+        </Link>
+        </div>
       </div>);
-    })
+    }.bind(this))
     return(
       <div class="wrap">
       <Navbar user={this.state.user} />

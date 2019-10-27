@@ -18,9 +18,11 @@
 .content{
   width:90%;
   padding:0;
-  margin:0 auto;
+  margin:3vh auto;
   margin-top:3vh;
   box-sizing: border-box;
+  /* overflow: auto; */
+  padding-bottom:3vh
 }
 .ad-n{
   width:100%;
@@ -60,4 +62,14 @@ input[type="submit"]{
   text-align: center;
   box-sizing: border-box;
   padding:0;
+}
+.link-ms{
+  margin:0 20%;
+  float:left;
+  display: block;
+}
+.link-mf{
+  margin:0 20%;
+  float:right;
+  display: block;
 }
