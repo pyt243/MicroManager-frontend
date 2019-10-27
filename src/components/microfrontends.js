@@ -66,7 +66,7 @@ class MicroFrontends extends Component{
           </div>
           <div className="add-m">
           <Link to={{pathname:"/addmicrofrontend",state:{user:this.state.user}}}>
-              <button className="add-b">Add a MicroService</button>
+              <button className="add-b">Add a Micro-Frontend</button>
           </Link>
           </div>
       </div>
@@ -76,7 +76,7 @@ class MicroFrontends extends Component{
     var index = e.target.id[4]
     var micros = this.state.micros
     // alert(micros[e.target.id[4]]._id)
-    axios.post("http://localhost:5000/delete_one/"+micros[e.target.id[4]]._id,{}).then(res => {
+    axios.post("http://localhost:5002/delete_one/"+micros[e.target.id[4]]._id,{}).then(res => {
       if(res.data.status == true){
       alert("Deleted sucessfully")
       var micros = this.state.micros

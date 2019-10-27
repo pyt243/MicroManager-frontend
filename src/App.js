@@ -9,6 +9,7 @@ import AddMicroService from './components/add_microservice.js'
 import UpdateMS from './components/update_ms.js'
 import MicroFrontends from './components/microfrontends.js'
 import AddMicroFrontend from './components/add_mf.js'
+import UpdateMF from './components/update_mf.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -41,6 +42,7 @@ function App() {
       <Route path = '/updatemicroservice' component = {UpdateMS} />
       <Route path = '/microfrontends' component = {MicroFrontends} />
       <Route path = "/addmicrofrontend" component = {AddMicroFrontend} />
+      <Route path = '/updatemicrofrontend' component = {UpdateMF} />
     </div>
     </BrowserRouter>
   );
