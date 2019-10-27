@@ -5,14 +5,14 @@ import './view_ms.css'
 import axios from 'axios'
 
 
-class Microservices extends Component{
+class MicroFrontends extends Component{
   state={
     user:this.props.location.state.user,
     loadStatus:false
   }
   componentWillMount(){
     this.setState(this.props.location.state)
-    axios.post('http://localhost:5000/micr',{}).then(res=>{
+    axios.post('http://localhost:5002/micr-fr',{}).then(res=>{
       this.setState({micros:res.data.micros,loadStatus:true});
       console.log(res.data.micros)
     })
@@ -23,7 +23,7 @@ class Microservices extends Component{
     var micros = this.state.micros
     if(this.state.loadStatus==true){
     micros = micros.map(function(micro,index){
-      var keywords = micro.keywords
+      var keywords = micro.keywords.split(",")
       keywords = keywords.map(function(key,index){
         return(<div className="mkey"><p>{key}</p></div>)
       });
@@ -44,9 +44,10 @@ class Microservices extends Component{
                   {tech_stack}
               </div>
               <p className="micro-desc"><b>Documentation: </b>{micro.documentation}</p>
+              <p className="micro-desc"><b>MF-image: </b>{micro.mf_image}</p>
               </div>
               <div className="micro-but">
-                <Link to={{pathname:"/updatemicroservice",state:{user:this.state.user,micro_id:micro._id}}}>
+                <Link to={{pathname:"/updatemicrofrontend",state:{user:this.state.user,micro_id:micro._id}}}>
                   <button className="m-up" id={"emub"+index}>Update</button>
                 </Link>
                 <button className="m-del" id={"emdb"+index} onClick={this.microDelete}>Delete</button>
@@ -59,13 +60,12 @@ class Microservices extends Component{
       <div className="wrap">
       <Navbar user={this.state.user} />
 
-          <h1 className="title">Microservices Management</h1>
           <div className="content">
-            <h2 className="subtitle">List of Micro-services</h2>
+            <h2 className="subtitle">List of Micro-frontends</h2>
             {micros}
           </div>
           <div className="add-m">
-          <Link to={{pathname:"/addmicroservice",state:{user:this.state.user}}}>
+          <Link to={{pathname:"/addmicrofrontend",state:{user:this.state.user}}}>
               <button className="add-b">Add a MicroService</button>
           </Link>
           </div>
@@ -94,4 +94,4 @@ class Microservices extends Component{
     alert(this.state.micros[index]._id)
   }
 }
-export default Microservices
+export default MicroFrontends

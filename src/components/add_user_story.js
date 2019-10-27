@@ -17,7 +17,7 @@ class AddUserStory extends Component{
     return(
       <div className="wrap">
         <Navbar user={this.state.user} />
-        <h1 className="title">Add a User Story</h1>
+        <h1 className="add-title">Add a User Story</h1>
         <div className="content">
           <form onSubmit={this.adduserstory}>
             <div className="ad-n">

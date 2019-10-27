@@ -15,7 +15,7 @@ class Navbar extends Component{
     var litems=[];
     var ritems=['Signup'];
     if(this.props.user.username !== 'noone'){
-      litems=['UserStories','Microservices','Requests'];
+      litems=['UserStories','Microservices','Microfrontends','Requests'];
       ritems=['logout'];
     }
     ritems = ritems.map(function(item,index){

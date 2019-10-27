@@ -5,6 +5,10 @@ import SignUp from './components/signup.js'
 import Microservices from './components/microservices.js'
 import UserStories from './components/userstories.js'
 import AddUserStory from './components/add_user_story.js'
+import AddMicroService from './components/add_microservice.js'
+import UpdateMS from './components/update_ms.js'
+import MicroFrontends from './components/microfrontends.js'
+import AddMicroFrontend from './components/add_mf.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -33,6 +37,10 @@ function App() {
       <Route exact path = '/microservices' component={Microservices} />
       <Route path = '/userstories' component={UserStories} />
       <Route path = '/adduserstory' component={AddUserStory} />
+      <Route path = '/addmicroservice' component = {AddMicroService} />
+      <Route path = '/updatemicroservice' component = {UpdateMS} />
+      <Route path = '/microfrontends' component = {MicroFrontends} />
+      <Route path = "/addmicrofrontend" component = {AddMicroFrontend} />
     </div>
     </BrowserRouter>
   );
