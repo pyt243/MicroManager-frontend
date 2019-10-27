@@ -10,6 +10,7 @@ import UpdateMS from './components/update_ms.js'
 import MicroFrontends from './components/microfrontends.js'
 import AddMicroFrontend from './components/add_mf.js'
 import UpdateMF from './components/update_mf.js'
+import Search from './components/search.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -43,6 +44,7 @@ function App() {
       <Route path = '/microfrontends' component = {MicroFrontends} />
       <Route path = "/addmicrofrontend" component = {AddMicroFrontend} />
       <Route path = '/updatemicrofrontend' component = {UpdateMF} />
+      <Route path = '/search' component = {Search} />
     </div>
     </BrowserRouter>
   );
