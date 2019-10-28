@@ -3,6 +3,9 @@ import Navbar from './navbar.js'
 import {Link} from 'react-router-dom';
 import './view_ms.css'
 import axios from 'axios'
+import Each_MS from './each-ms.js'
+import Each_MF from './each_mf.js'
+import { templateElement } from '@babel/types';
 
 class Search extends Component{
     state={
@@ -10,7 +13,8 @@ class Search extends Component{
         search_results:[],
         result_fetched: false,
         result_len: 0,
-        dropdown_value: "ms"
+        dropdown_value: "ms",
+        micros:[]
     }
     componentWillMount(){
         this.setState(this.props.location.state)
@@ -40,6 +44,7 @@ class Search extends Component{
         console.log("cakked")
         console.log(e.target.value)
         this.setState({search_input:e.target.value})
+
         //var query =  this.state.search_input
         //console.log(query)
         // alert(title + keywords + desc + tech_stack + code_snippet + documentation)
@@ -64,6 +69,7 @@ class Search extends Component{
         //     alert("Microservice updated successfully")
         //   }
         // })
+        this.setState({micros:[]})
         e.preventDefault()
         axios.post("http://localhost:5002/srch/",{search_input:this.state.search_input,dropdown_value:this.state.dropdown_value})
         .then(res=>{
@@ -77,6 +83,18 @@ class Search extends Component{
             }
             else{
                 this.setState({result_len:res.data.length})
+                let temp=[]
+                if(this.state.dropdown_value=="ms"){
+                  for(let i=0;i<res.data.length;i++){
+                    temp.push(<Each_MS user={""} micro_id={res.data[i]._id} />)
+                  }
+                }
+                else{
+                  for(let i=0;i<res.data.length;i++){
+                    temp.push(<Each_MF user={""} micro_id={res.data[i]._id} />)
+                  }
+                }
+                this.setState({micros:temp})
             }
         
         })
@@ -104,7 +122,7 @@ class Search extends Component{
                   
                   <input type="submit"  value="Submit" />
                 </form>
-                <h1>{this.state.result_fetched? (this.state.result_len == 0 ? "No result found": "Results are:" +JSON.stringify(this.state.search_results)) :"loading..." }</h1>
+                <h1>{this.state.result_fetched? (this.state.result_len == 0 ? "No result found":  this.state.micros  ) :"loading..." }</h1>
                 {/*array of results from query are there in this.state.search_results */}
               </div>
             </div>
