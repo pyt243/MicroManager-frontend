@@ -13,6 +13,8 @@ import UpdateMF from './components/update_mf.js'
 import Search from './components/search.js'
 import UpdateUS from './components/update_us.js'
 import Each_MS_Detail from './components/each-ms-detail.js'
+import Each_MF_Detail from './components/each_mf_detail.js'
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -49,6 +51,8 @@ function App() {
       <Route path = '/search' component = {Search} />
       <Route path = '/updateuserstory' component = {UpdateUS} />
       <Route path = '/eachms'  component = {Each_MS_Detail} />
+      <Route path = '/eachmf'  component = {Each_MF_Detail} />
+
     </div>
     </BrowserRouter>
   );

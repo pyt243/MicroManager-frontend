@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from './navbar.js'
 import {Link} from 'react-router-dom';
+import Each_MF from './each_mf.js'
 import './view_ms.css'
 import axios from 'axios'
 
@@ -23,36 +24,9 @@ class MicroFrontends extends Component{
     var micros = this.state.micros
     if(this.state.loadStatus==true){
     micros = micros.map(function(micro,index){
-      var keywords = micro.keywords.split(",")
-      keywords = keywords.map(function(key,index){
-        return(<div className="mkey"><p>{key}</p></div>)
-      });
-      var tech_stack = micro.tech_stack
-      tech_stack = tech_stack.map(function(tech,index){
-        return(<div className="mtech"><p>{tech}</p></div>)
-      })
+
       return(
-          <div className='each-micro' id={"each-microid"+index}>
-              <div className="em-1">
-              <h3 className='micro-name'>{micro.title}</h3>
-              <div className="micro_keys">
-                {keywords}
-              </div>
-              <p className='micro-desc'> {micro.desc}</p>
-              <div className="tech_stack">
-                  <h3 className="ts-title">Tech Stack</h3>
-                  {tech_stack}
-              </div>
-              <p className="micro-desc"><b>Documentation: </b>{micro.documentation}</p>
-              <p className="micro-desc"><b>MF-image: </b>{micro.mf_image}</p>
-              </div>
-              <div className="micro-but">
-                <Link to={{pathname:"/updatemicrofrontend",state:{user:this.state.user,micro_id:micro._id}}}>
-                  <button className="m-up" id={"emub"+index}>Update</button>
-                </Link>
-                <button className="m-del" id={"emdb"+index} onClick={this.microDelete}>Delete</button>
-              </div>
-          </div>
+          <Each_MF user={this.state.user} micro_id={micro._id} />
       )
     }.bind(this));
   }
