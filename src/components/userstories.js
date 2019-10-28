@@ -13,7 +13,7 @@ class UserStories extends Component{
   componentWillMount(){
     this.setState(this.props.location.state)
     axios.post('http://localhost:5001/getuserstory',{owner:this.state.user._id}).then(res=>{
-        console.log(res.data.user_stories)
+        console.log(JSON.stringify(res.data.user_stories))
         this.setState({user_stories:res.data.user_stories});
     })
   }

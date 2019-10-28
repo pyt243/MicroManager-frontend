@@ -17,7 +17,7 @@ class Search extends Component{
         micros:[]
     }
     componentWillMount(){
-        this.setState(this.props.location.state)
+        //this.setState(this.props.location.state)
     //   this.setState(this.props.location.state)
     //   axios.post('http://localhost:5000/micr',{}).then(res=>{
     //     this.setState({micros:res.data.micros,loadStatus:true});
@@ -86,12 +86,12 @@ class Search extends Component{
                 let temp=[]
                 if(this.state.dropdown_value=="ms"){
                   for(let i=0;i<res.data.length;i++){
-                    temp.push(<Each_MS user={""} micro_id={res.data[i]._id} />)
+                    temp.push(<Each_MS user={this.props.owner} micro_id={res.data[i]._id} />)
                   }
                 }
                 else{
                   for(let i=0;i<res.data.length;i++){
-                    temp.push(<Each_MF user={""} micro_id={res.data[i]._id} />)
+                    temp.push(<Each_MF user={this.props.owner} micro_id={res.data[i]._id} />)
                   }
                 }
                 this.setState({micros:temp})

@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from './navbar.js'
 import axios from 'axios'
+import Search from './search.js'
 import './addmicro.css'
 
 class UpdateUS extends Component {
@@ -55,6 +56,7 @@ class UpdateUS extends Component {
 
           </div>
         </div>
+        <Search owner={this.state.user._id}/>
       </div>
     )
   }
