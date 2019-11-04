@@ -14,6 +14,8 @@ import Search from './components/search.js'
 import UpdateUS from './components/update_us.js'
 import Each_MS_Detail from './components/each-ms-detail.js'
 import Each_MF_Detail from './components/each_mf_detail.js'
+import RequestMS from './components/requestms.js'
+import RequestMF from './components/requestmf.js'
 
 import logo from './logo.svg';
 import './App.css';
@@ -52,6 +54,8 @@ function App() {
       <Route path = '/updateuserstory' component = {UpdateUS} />
       <Route path = '/eachms'  component = {Each_MS_Detail} />
       <Route path = '/eachmf'  component = {Each_MF_Detail} />
+      <Route path = "/requestms" component={RequestMS} />
+      <Route path = "/requestmf" component={RequestMF} />
 
     </div>
     </BrowserRouter>

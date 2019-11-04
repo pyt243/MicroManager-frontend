@@ -26,7 +26,7 @@ class MicroFrontends extends Component{
     micros = micros.map(function(micro,index){
 
       return(
-          <Each_MF user={this.state.user} micro_id={micro._id} />
+          <Each_MF user={this.state.user} micro_id={micro._id} link={false}/>
       )
     }.bind(this));
   }
@@ -41,6 +41,9 @@ class MicroFrontends extends Component{
           <div className="add-m">
           <Link to={{pathname:"/addmicrofrontend",state:{user:this.state.user}}}>
               <button className="add-b">Add a Micro-Frontend</button>
+          </Link>
+          <Link to={{pathname:"/requestmf",state:{user:this.state.user}}}>
+              <button className="add-b">Request MicroFrontend</button>
           </Link>
           </div>
       </div>

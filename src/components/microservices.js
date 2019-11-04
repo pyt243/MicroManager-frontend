@@ -40,6 +40,9 @@ class Microservices extends Component{
           <Link to={{pathname:"/addmicroservice",state:{user:this.state.user}}}>
               <button className="add-b">Add a MicroService</button>
           </Link>
+          <Link to={{pathname:"/requestms",state:{user:this.state.user}}}>
+              <button className="add-b">Request a MicroService</button>
+          </Link>
           </div>
       </div>
     )

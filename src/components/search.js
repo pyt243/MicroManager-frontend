@@ -25,8 +25,8 @@ class Search extends Component{
     //   })
     }
     handleDropdownChange(e){
-        
-        
+
+
         console.log(e.target.value)
         this.setState({dropdown_value:e.target.value})
         //var query =  this.state.search_input
@@ -40,7 +40,7 @@ class Search extends Component{
         //e.preventDefault()
       }
     handleChange(e){
-        
+
         console.log("cakked")
         console.log(e.target.value)
         this.setState({search_input:e.target.value})
@@ -56,9 +56,9 @@ class Search extends Component{
         //e.preventDefault()
       }
     handleSubmit(e){
-        
+
         console.log("cakked")
-        
+
         console.log(this.state.search_input)
 
         //var query =  this.state.search_input
@@ -74,7 +74,7 @@ class Search extends Component{
         axios.post("http://localhost:5002/srch/",{search_input:this.state.search_input,dropdown_value:this.state.dropdown_value})
         .then(res=>{
             console.log(res.data)
-            
+
             this.setState({search_results:res.data,result_fetched:true})
             //search_results_len=res.data.length
             if(res.data.length==0){
@@ -91,12 +91,12 @@ class Search extends Component{
                 }
                 else{
                   for(let i=0;i<res.data.length;i++){
-                    temp.push(<Each_MF user={this.props.owner} micro_id={res.data[i]._id} />)
+                    temp.push(<Each_MF user={this.props.owner} micro_id={res.data[i]._id} link={true}/>)
                   }
                 }
                 this.setState({micros:temp})
             }
-        
+
         })
       }
     render(){
@@ -107,7 +107,7 @@ class Search extends Component{
         //console.log(JSON.stringify(this.state))
         return(
             <div className="wrap">
-              <h1 className="add-title">Update Microservice</h1>
+              <h1 className="add-title">Link MS/MF</h1>
               <div className="content">
               <select value={this.state.dropdown_value}
               onChange={this.handleDropdownChange}>
@@ -119,7 +119,7 @@ class Search extends Component{
                   <div className="ad-n">
                     <input type="text" name="search_textbox" onChange={this.handleChange} ref="search_textbox"/>
                   </div>
-                  
+
                   <input type="submit"  value="Submit" />
                 </form>
                 <h1>{this.state.result_fetched? (this.state.result_len == 0 ? "No result found":  this.state.micros  ) :"loading..." }</h1>
@@ -130,7 +130,7 @@ class Search extends Component{
     }
   //  {this.state.result_fetched? (this.state.result_len ? :  ) : }
 
-    
+
   }
 
   export default Search

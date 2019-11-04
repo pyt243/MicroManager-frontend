@@ -28,6 +28,10 @@ class Each_MF extends Component{
     var keywords = micro.keywords
     var tech_stack = micro.tech_stack
     this.linkHandler = this.linkHandler.bind(this);
+    var linkButton = (<button className="m-del" id={"emub"} onClick={this.linkHandler}>Link</button>)
+    if(this.props.link == false){
+      linkButton = null
+    }
 
     if(this.state.loadStatus==true){
 
@@ -60,11 +64,7 @@ class Each_MF extends Component{
                 <Link to={{pathname:"/eachmf",state:{user:this.state.user,micro_id:micro._id}}}>
                   <button className="m-up" id={"emub"}>View Details</button>
                 </Link>
-            </div>
-            <div className="micro-but">
-                
-                  <button className="m-up" id={"emub"} onClick={this.linkHandler}>Link</button>
-  
+                {linkButton}
             </div>
         </div>
     )

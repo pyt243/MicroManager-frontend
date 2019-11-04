@@ -51,9 +51,7 @@ class UpdateUS extends Component {
             <input type="submit" />
           </form>
           <div class="form-group">
-          <button class="btn btn-outline-success link-ms">Link MS </button>
-          <button class="btn btn-outline-success link-mf">Link MF </button>
-
+          
           </div>
         </div>
         <Search owner={this.state.user._id}/>
