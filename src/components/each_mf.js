@@ -12,7 +12,7 @@ class Each_MF extends Component{
   }
   linkHandler(e)
   {
-    axios.post("http://localhost:5001/link_us",{micro_id:this.props.micro_id,us_id:this.props.owner,micro_type:"mf"}).then(res => {
+    axios.post("http://localhost:5001/link_us",{micro_id:this.props.micro_id,us_id:this.props.us_id,micro_type:"mf"}).then(res => {
       console.log("MF linked sucess")
     })
   }

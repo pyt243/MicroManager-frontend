@@ -13,6 +13,7 @@ class UpdateUS extends Component {
 
   componentWillMount(){
     this.setState(this.props.location.state)
+    console.log("ds"+this.props.location.state.user_story_id)
     axios.post("http://localhost:5001/retrieve_one",{us_id:this.props.location.state.user_story_id}).then(res => {
       console.log(res.data.user_story)
       this.setState({user_story:res.data.user_story,loadStatus:true})
@@ -54,7 +55,7 @@ class UpdateUS extends Component {
           
           </div>
         </div>
-        <Search owner={this.state.user._id}/>
+        <Search owner={this.state.user._id} us_id={this.props.location.state.user_story_id}/>
       </div>
     )
   }

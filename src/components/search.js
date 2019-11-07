@@ -86,12 +86,12 @@ class Search extends Component{
                 let temp=[]
                 if(this.state.dropdown_value=="ms"){
                   for(let i=0;i<res.data.length;i++){
-                    temp.push(<Each_MS user={this.props.owner} micro_id={res.data[i]._id} />)
+                    temp.push(<Each_MS user={this.props.owner} us_id={this.props.us_id} micro_id={res.data[i]._id} />)
                   }
                 }
                 else{
                   for(let i=0;i<res.data.length;i++){
-                    temp.push(<Each_MF user={this.props.owner} micro_id={res.data[i]._id} link={true}/>)
+                    temp.push(<Each_MF user={this.props.owner} micro_id={res.data[i]._id} us_id={this.props.us_id} link={true}/>)
                   }
                 }
                 this.setState({micros:temp})

@@ -10,14 +10,16 @@ class RequestMS extends Component{
     user:{username:"noone"}
   }
   componentWillMount(){
-    this.setState({user:this.props.location.state.user})
+    this.setState(this.props.location.state)
+    console.log(this.props)
   }
   render(){
     this.requestMicro = this.requestMicro.bind(this)
     return (
       <div className="wrap">
       <Navbar user={this.state.user} />
-      <h1 className="add-title">Request MS : {this.state.user.name}</h1>
+      {/* <h1 className="add-title">Request MS : {this.state.user.name}</h1> */}
+      <h1 className="add-title">MS name : {this.state.micro_name}</h1>
       <div className="content">
         <form onSubmit={this.requestMicro}>
           <div className="ad-n">
@@ -37,8 +39,13 @@ class RequestMS extends Component{
     var user = this.state.user._id
     var title = this.refs.title.value
     var desc = this.refs.desc.value
-    var ms_mf = "microservice"
-    alert(user + title + desc + ms_mf)
+    var ms_id = this.state.micro_id
+    alert(user +" "+ title +" "+ desc +" "+ ms_id)
+    axios.post("http://localhost:5000/add_individual_request/",{ title:title ,desc:desc, owner:user , ms_id:ms_id}).then(res => {
+      if(res.data.status == true){
+        alert("Microreq sent successfully")
+      }
+    })
   }
 }
  export default RequestMS

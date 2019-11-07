@@ -54,8 +54,8 @@ function App() {
       <Route path = '/updateuserstory' component = {UpdateUS} />
       <Route path = '/eachms'  component = {Each_MS_Detail} />
       <Route path = '/eachmf'  component = {Each_MF_Detail} />
-      <Route path = "/requestms" component={RequestMS} />
-      <Route path = "/requestmf" component={RequestMF} />
+      <Route path = '/requestms' component={RequestMS} />
+      <Route path = '/requestmf' component={RequestMF} />
 
     </div>
     </BrowserRouter>

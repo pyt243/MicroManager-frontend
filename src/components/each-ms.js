@@ -10,7 +10,13 @@ class Each_MS extends Component{
     micro:{title:"MS"},
     loadStatus:false
   }
-
+  linkHandler(e)
+  {
+    console.log("ds usid"+this.props.us_id)
+    axios.post("http://localhost:5001/link_us",{micro_id:this.props.micro_id,us_id:this.props.us_id,micro_type:"ms"}).then(res => {
+      console.log("MS linked sucess")
+    })
+  }
   componentWillMount(){
     this.setState({user:this.props.user})
     axios.post("http://localhost:5000/retrieve_one",{micro_id:this.props.micro_id}).then(res => {
@@ -22,6 +28,11 @@ class Each_MS extends Component{
     var micro = this.state.micro
     var keywords = micro.keywords
     var tech_stack = micro.tech_stack
+    this.linkHandler = this.linkHandler.bind(this);
+    var linkButton = (<button className="m-del" id={"emub"} onClick={this.linkHandler}>Link</button>)
+    if(this.props.link == false){
+      linkButton = null
+    }
 
     if(this.state.loadStatus==true){
 
@@ -50,6 +61,7 @@ class Each_MS extends Component{
                 <Link to={{pathname:"/eachms",state:{user:this.state.user,micro_id:micro._id}}}>
                   <button className="m-up" id={"emub"}>View Details</button>
                 </Link>
+                {linkButton}
             </div>
         </div>
     )
