@@ -16,6 +16,8 @@ import Each_MS_Detail from './components/each-ms-detail.js'
 import Each_MF_Detail from './components/each_mf_detail.js'
 import RequestMS from './components/requestms.js'
 import RequestMF from './components/requestmf.js'
+import GlobalRequestMF from "./components/global_req_mf.js"
+import GlobalRequestMS from "./components/global_req_ms.js"
 
 import logo from './logo.svg';
 import './App.css';
@@ -54,8 +56,10 @@ function App() {
       <Route path = '/updateuserstory' component = {UpdateUS} />
       <Route path = '/eachms'  component = {Each_MS_Detail} />
       <Route path = '/eachmf'  component = {Each_MF_Detail} />
-      <Route path = '/requestms' component={RequestMS} />
-      <Route path = '/requestmf' component={RequestMF} />
+      <Route path = '/ind_requestms' component={RequestMS} />
+      <Route path = '/ind_requestmf' component={RequestMF} />
+      <Route path="/requestmf" component={GlobalRequestMF} />
+      <Route path="/requestms" component={GlobalRequestMS} />
 
     </div>
     </BrowserRouter>

@@ -36,6 +36,8 @@ class Each_MF_Detail extends Component{
     })
   }
     return(
+            <div className="wrap">
+            <Navbar user={this.state.user} />
             <div className="em-1">
             <h3 className='micro-name'>{micro.title}</h3>
             <div className="micro_keys">
@@ -54,10 +56,11 @@ class Each_MF_Detail extends Component{
                   <button className="m-up" id={"emub"}>Update</button>
                 </Link>
                 <button className="m-del" id={"emdb"} onClick={this.microDelete}>Delete</button>
-                <Link to={{pathname:"/requestmf",state:{user:this.state.user,micro_id:this.state.micro._id,micro_name:this.state.micro.title}}}>
+                <Link to={{pathname:"/ind_requestmf",state:{user:this.state.user,micro_id:this.state.micro._id,micro_name:this.state.micro.title}}}>
                   <button className="m-up" id={"mf_ir"}>Individual Request</button>
                 </Link>
               </div>
+            </div>
             </div>
     )
   }

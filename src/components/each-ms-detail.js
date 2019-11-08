@@ -51,7 +51,7 @@ class Each_MS_Detail extends Component{
                   <button className="m-up" id={"emub"}>Update</button>
                 </Link>
                 <button className="m-del" id={"emdb"} onClick={this.microDelete}>Delete</button>
-                <Link to={{pathname:"/requestms",state:{user:this.state.user,micro_id:this.state.micro._id,micro_name:this.state.micro.title}}}>
+                <Link to={{pathname:"/ind_requestms",state:{user:this.state.user,micro_id:this.state.micro._id,micro_name:this.state.micro.title}}}>
                   <button className="m-up" id={"mf_ir"}>Individual Request</button>
                 </Link>
               </div>
