@@ -18,6 +18,7 @@ import RequestMS from './components/requestms.js'
 import RequestMF from './components/requestmf.js'
 import GlobalRequestMF from "./components/global_req_mf.js"
 import GlobalRequestMS from "./components/global_req_ms.js"
+import GlobalRequests from './components/global_requests.js'
 
 import logo from './logo.svg';
 import './App.css';
@@ -60,7 +61,7 @@ function App() {
       <Route path = '/ind_requestmf' component={RequestMF} />
       <Route path="/requestmf" component={GlobalRequestMF} />
       <Route path="/requestms" component={GlobalRequestMS} />
-
+      <Route path="/requests" component={GlobalRequests} />
     </div>
     </BrowserRouter>
   );
