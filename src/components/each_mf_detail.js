@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import Navbar from './navbar.js'
+import IndividualRequests from './individual_requests.js'
 import {Link} from 'react-router-dom';
 import './view_ms.css'
 import axios from 'axios'
@@ -8,7 +9,8 @@ class Each_MF_Detail extends Component{
   state={
     user:{username:"noone"} || this.props.location.user,
     micro:{title:"Mf"},
-    loadStatus:false
+    loadStatus:false,
+    dataReceived:false
   }
 
   componentWillMount(){
@@ -16,7 +18,7 @@ class Each_MF_Detail extends Component{
     console.log(this.props.location)
     axios.post("http://localhost:5002/retrieve_one",{micro_id:this.props.location.state.micro_id}).then(res => {
       console.log(res.data.micro)
-      this.setState({micro:res.data.micro,loadStatus:true})
+      this.setState({micro:res.data.micro,loadStatus:true,dataReceived:true})
     })
   }
   render(){
@@ -35,6 +37,7 @@ class Each_MF_Detail extends Component{
       return(<div className="mtech"><p>{tech}</p></div>)
     })
   }
+  console.log(this.state.micro._id)
     return(
             <div className="wrap">
             <Navbar user={this.state.user} />
@@ -59,7 +62,10 @@ class Each_MF_Detail extends Component{
                 <Link to={{pathname:"/ind_requestmf",state:{user:this.state.user,micro_id:this.state.micro._id,micro_name:this.state.micro.title}}}>
                   <button className="m-up" id={"mf_ir"}>Individual Request</button>
                 </Link>
+
+                
               </div>
+              {this.state.dataReceived ? <IndividualRequests user={this.state.user} micro_id={this.state.micro._id} type="mf"/>: ""}
             </div>
             </div>
     )

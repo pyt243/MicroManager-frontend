@@ -8,14 +8,20 @@ import './view_ms.css'
 class UserStories extends Component{
   state={
     user:this.props.location.state.user,
-    user_stories:[]
+    user_stories:[],
+    micro_name:""
   }
   componentWillMount(){
     this.setState(this.props.location.state)
     axios.post('http://localhost:5001/getuserstory',{owner:this.state.user._id}).then(res=>{
         console.log(JSON.stringify(res.data.user_stories))
+        console.log(res.data)
         this.setState({user_stories:res.data.user_stories});
     })
+    // axios.post('http://localhost:5001/ms_mf_links',{us_id:this.state.us_id}).then(res=>{
+    //     console.log(JSON.stringify(res.data.user_stories))
+    //     this.setState({user_stories:res.data.user_stories});
+    // })
   }
   render(){
     var user_stories = this.state.user_stories
@@ -29,6 +35,22 @@ class UserStories extends Component{
         <Link to={{pathname:"/updateuserstory",state:{user:this.state.user,user_story_id:user_story._id}}}>
           <button className="m-up" id={"euub"+index}>Update</button>
         </Link>
+        <br></br>
+        <p>Microservice links</p>
+        {user_story.link_to_ms.map((link, index) => {return (
+           <Link to={{pathname:"/eachms",state:{user:this.state.user,micro_id:link}}}>
+           <button className="m-up" id={"emub"}>{"Link "+(index+1)}</button>
+         </Link>
+        )
+        })}
+        <p>Microfrontend links</p>
+        {user_story.link_to_mf.map((link,index) => {return (
+           <Link to={{pathname:"/eachmf",state:{user:this.state.user,micro_id:link}}}>
+           <button className="m-up" id={"emub"}>{"Link "+(index+1)}</button>
+         </Link>
+        )
+        })}
+        {/* <h1>{JSON.stringify(user_story.link_to_ms+"\n"+user_story.link_to_mf)}</h1> */}
         </div>
       </div>);
     }.bind(this))

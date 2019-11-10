@@ -2,13 +2,15 @@ import React , {Component} from 'react'
 import Navbar from './navbar.js'
 import {Link} from 'react-router-dom';
 import './view_ms.css'
+import IndividualRequests from './individual_requests.js'
 import axios from 'axios'
 
 class Each_MS_Detail extends Component{
   state={
     user:{username:"noone"} || this.props.location.user,
     micro:{title:"MS"},
-    loadStatus:false
+    loadStatus:false,
+    dataReceived:false
   }
 
   componentWillMount(){
@@ -16,7 +18,7 @@ class Each_MS_Detail extends Component{
     console.log(this.props.location)
     axios.post("http://localhost:5000/retrieve_one",{micro_id:this.props.location.state.micro_id}).then(res => {
       console.log(res.data.micro)
-      this.setState({micro:res.data.micro,loadStatus:true})
+      this.setState({micro:res.data.micro,loadStatus:true,dataReceived:true})
     })
   }
   render(){
@@ -55,6 +57,7 @@ class Each_MS_Detail extends Component{
                   <button className="m-up" id={"mf_ir"}>Individual Request</button>
                 </Link>
               </div>
+              {this.state.dataReceived ? <IndividualRequests user={this.state.user} micro_id={this.state.micro._id} type="ms"/>: ""}
             </div>
     )
   }
