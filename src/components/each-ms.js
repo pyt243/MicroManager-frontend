@@ -55,7 +55,7 @@ class Each_MS extends Component{
                 <h3 className="ts-title">Tech Stack</h3>
                 {tech_stack}
             </div>
-            <p className="micro-desc"><b>Documentation: </b>{micro.documentation}</p>
+            <p className="micro-doc"><b>Documentation: </b>{micro.documentation}</p>
             </div>
             <div className="micro-but">
                 <Link to={{pathname:"/eachms",state:{user:this.state.user,micro_id:micro._id}}}>

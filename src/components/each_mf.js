@@ -56,8 +56,8 @@ class Each_MF extends Component{
                 <h3 className="ts-title">Tech Stack</h3>
                 {tech_stack}
             </div>
-            <p className="micro-desc"><b>Documentation: </b>{micro.documentation}</p>
-            <p className="micro-desc"><b>MF-image: </b>{micro.mf_image}</p>
+            <p className="micro-doc"><b>Documentation: </b>{micro.documentation}</p>
+            <p className="micro-doc"><b>MF-image: </b>{micro.mf_image}</p>
 
             </div>
             <div className="micro-but">

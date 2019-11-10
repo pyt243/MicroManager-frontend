@@ -35,7 +35,6 @@ class IndividualRequests extends Component {
       return (
         <div className="each-req">
           <h2 className="er-title">{req.title}</h2>
-          <h3 className="er-msmf">{req.ms_mf}</h3>
           <p className="er-desc">{req.desc}</p>
           {/* <button className="btn btn-success er-but">Handle Request </button> */}
         </div>
@@ -45,7 +44,7 @@ class IndividualRequests extends Component {
 
       <div className="content">
       <h1 className="req-title">Individual Requests</h1>
-      
+
       {requests}
       </div>
     )

@@ -5,7 +5,7 @@
   padding: 0;
   margin: 0;
   padding-top:45px;
-  background-image: url("images/landing-mm.jpg"); /* The image used */
+  background-image: url("images/darkb3.jpg"); /* The image used */
   background-color: #000000;
   background-position:left; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -28,7 +28,7 @@
   height: auto;
   padding: 0;
   margin: 0 auto;
-  margin-top: 3vh;
+  margin-top: 0;
   box-sizing: border-box;
 }
 .subtitle {
@@ -169,7 +169,16 @@
 }
 .micro-desc {
   width: 100%;
-  height: auto;
+  height: 20vh;
+  overflow:hidden;
+  font-size: 2.5vh;
+  margin: 0;
+  margin-top: 1vh;
+  padding: 1vh;
+  margin-bottom: 0vh;
+}
+.micro-doc{
+  width: 100%;
   font-size: 2.5vh;
   margin: 0;
   margin-top: 1vh;
@@ -177,24 +186,31 @@
   margin-bottom: 0vh;
 }
 .add-m {
-  width: 100%;
+  width: 90%;
   /* height: 12vh; */
-  overflow:auto;
+  overflow:hidden;
   box-sizing: border-box;
   padding: 2vh 0;
   padding-right:0;
-  margin: 1vh;
+  margin: 1vh auto;
   margin-top: 3vh;
   position: relative;
 }
 .add-b {
+  display:block;
   width: 20vw;
   height: 7vh;
   font-size: 3.5vh;
   text-align: center;
   padding: 0vh;
   box-sizing: border-box;
-  margin: 2vh 35vw;
+  margin: 2vh 5vw;
+}
+.adm{
+  float:left;
+}
+.reqm{
+  float:right;
 }
 .add-b a {
   text-decoration: none;

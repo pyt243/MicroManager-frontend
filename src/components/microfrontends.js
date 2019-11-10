@@ -33,18 +33,18 @@ class MicroFrontends extends Component{
     return(
       <div className="wrap">
       <Navbar user={this.state.user} />
-
           <div className="content">
-            <h2 className="title">List of Micro-frontends</h2>
-            {micros}
-          </div>
+          <h2 className="title">List of Micro-frontends</h2>
+          
           <div className="add-m">
           <Link to={{pathname:"/addmicrofrontend",state:{user:this.state.user}}}>
-              <button className="add-b">Add a Micro-Frontend</button>
+              <button className="add-b adm">Add a Micro-Frontend</button>
           </Link>
           <Link to={{pathname:"/requestmf",state:{user:this.state.user}}}>
-              <button className="add-b">Request MicroFrontend</button>
+              <button className="add-b reqm">Request MicroFrontend</button>
           </Link>
+          </div>
+            {micros}
           </div>
       </div>
     )

@@ -33,16 +33,16 @@ class Microservices extends Component{
       <Navbar user={this.state.user} />
 
           <h1 className="title">List of Microservices</h1>
-          <div className="content">
-            {micros}
-          </div>
           <div className="add-m">
           <Link to={{pathname:"/addmicroservice",state:{user:this.state.user}}}>
-              <button className="add-b">Add a MicroService</button>
+              <button className="add-b adm">Add a MicroService</button>
           </Link>
           <Link to={{pathname:"/requestms",state:{user:this.state.user}}}>
-              <button className="add-b">Request a MicroService</button>
+              <button className="add-b reqm">Request a MicroService</button>
           </Link>
+          </div>
+          <div className="content">
+            {micros}
           </div>
       </div>
     )
