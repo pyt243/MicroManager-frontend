@@ -55,8 +55,9 @@ class AddMicroFrontend extends Component{
     var code_snippet = this.refs.code_snippet.value
     var documentation = this.refs.documentation.value
     var mf_image = this.refs.mf_image.value
+    var developer = this.state.user._id
     // alert(desc+ title+owner)
-    axios.post("http://localhost:5002/add_micro_frontend",{ title:title ,mf_image:mf_image, desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res=> {
+    axios.post("http://localhost:5002/add_micro_frontend",{developer:developer, title:title ,mf_image:mf_image, desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res=> {
       if(res.data.status == false){
         alert(res.data.error.message)
       }else {

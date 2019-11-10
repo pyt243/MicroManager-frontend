@@ -35,8 +35,20 @@ class Each_MS_Detail extends Component{
     tech_stack = tech_stack.map(function(tech,index){
       return(<div className="mtech"><p>{tech}</p></div>)
     })
+    var up = (<Link to={{pathname:"/updatemicroservice",state:{user:this.state.user,micro_id:this.state.micro._id}}}>
+      <button className="m-up" id={"emub"}>Update</button>
+    </Link>)
+    var del =  (<button className="m-del" id={"emdb"} onClick={this.microDelete}>Delete</button>)
+
+    if(this.state.micro.developer != this.state.user._id){
+      up=null;
+      del=null;
+    }
+
   }
     return(
+            <div className="wrap">
+            <Navbar user={this.state.user} />
             <div className="em-1">
             <h3 className='micro-name'>{micro.title}</h3>
             <div className="micro_keys">
@@ -49,15 +61,14 @@ class Each_MS_Detail extends Component{
             </div>
             <p className="micro-desc"><b>Documentation: </b>{micro.documentation}</p>
             <div className="micro-but">
-                <Link to={{pathname:"/updatemicroservice",state:{user:this.state.user,micro_id:this.state.micro._id}}}>
-                  <button className="m-up" id={"emub"}>Update</button>
-                </Link>
-                <button className="m-del" id={"emdb"} onClick={this.microDelete}>Delete</button>
+                {up}
+                {del}
                 <Link to={{pathname:"/ind_requestms",state:{user:this.state.user,micro_id:this.state.micro._id,micro_name:this.state.micro.title}}}>
                   <button className="m-up" id={"mf_ir"}>Individual Request</button>
                 </Link>
               </div>
               {this.state.dataReceived ? <IndividualRequests user={this.state.user} micro_id={this.state.micro._id} type="ms"/>: ""}
+            </div>
             </div>
     )
   }

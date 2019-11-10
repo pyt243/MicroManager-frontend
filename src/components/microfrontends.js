@@ -35,7 +35,7 @@ class MicroFrontends extends Component{
       <Navbar user={this.state.user} />
 
           <div className="content">
-            <h2 className="subtitle">List of Micro-frontends</h2>
+            <h2 className="title">List of Micro-frontends</h2>
             {micros}
           </div>
           <div className="add-m">

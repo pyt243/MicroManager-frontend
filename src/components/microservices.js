@@ -24,7 +24,7 @@ class Microservices extends Component{
     if(this.state.loadStatus==true){
     micros = micros.map(function(micro,index){
       return(
-          <Each_MS user={this.state.user} micro_id={micro._id} />
+          <Each_MS user={this.state.user} micro_id={micro._id} link={false}/>
       )
     }.bind(this));
   }

@@ -42,14 +42,11 @@ class IndividualRequests extends Component {
       )
     })
     return(
-        
-      <div className="wrap">
-      <Navbar user={this.state.user} />
 
-      <h1 className="req-title">Individual Requests</h1>
       <div className="content">
+      <h1 className="req-title">Individual Requests</h1>
+      
       {requests}
-      </div>
       </div>
     )
   }

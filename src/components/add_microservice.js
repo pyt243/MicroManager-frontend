@@ -51,8 +51,9 @@ class AddMicroService extends Component{
     var tech_stack = this.refs.tech_stack.value
     var code_snippet = this.refs.code_snippet.value
     var documentation = this.refs.documentation.value
+    var developer = this.state.user._id
     // alert(desc+ title+owner)
-    axios.post("http://localhost:5000/addmicro",{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res=> {
+    axios.post("http://localhost:5000/addmicro",{ developer:developer, title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res=> {
       if(res.data.status == false){
         alert(res.data.error.message)
       }else {

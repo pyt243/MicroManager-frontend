@@ -28,7 +28,7 @@ class Home extends Component {
       loginDiv = null
     var navbar =  (<Navbar user={this.state.user}/>)
     return(
-      <div className="wrap">
+      <div className="home-wrap">
         <Navbar user={this.state.user} stateLogout={this.stateLogout.bind(this)} page='Home'/>
         <div className="landing">
         <h1 className="home-title">MicroManager</h1>

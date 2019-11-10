@@ -36,6 +36,16 @@ class Each_MF_Detail extends Component{
     tech_stack = tech_stack.map(function(tech,index){
       return(<div className="mtech"><p>{tech}</p></div>)
     })
+    var up = (<Link to={{pathname:"/updatemicrofrontend",state:{user:this.state.user,micro_id:this.state.micro._id}}}>
+      <button className="m-up" id={"emub"}>Update</button>
+    </Link>)
+
+    var del = (<button className="m-del" id={"emdb"} onClick={this.microDelete}>Delete</button>)
+
+    if(this.state.micro.developer != this.state.user._id){
+      up=null;
+      del=null;
+    }
   }
   console.log(this.state.micro._id)
     return(
@@ -55,15 +65,13 @@ class Each_MF_Detail extends Component{
             <p className="micro-desc"><b>MF-image: </b>{micro.mf_image}</p>
 
             <div className="micro-but">
-                <Link to={{pathname:"/updatemicrofrontend",state:{user:this.state.user,micro_id:this.state.micro._id}}}>
-                  <button className="m-up" id={"emub"}>Update</button>
-                </Link>
-                <button className="m-del" id={"emdb"} onClick={this.microDelete}>Delete</button>
+                {up}
+                {del}
                 <Link to={{pathname:"/ind_requestmf",state:{user:this.state.user,micro_id:this.state.micro._id,micro_name:this.state.micro.title}}}>
                   <button className="m-up" id={"mf_ir"}>Individual Request</button>
                 </Link>
 
-                
+
               </div>
               {this.state.dataReceived ? <IndividualRequests user={this.state.user} micro_id={this.state.micro._id} type="mf"/>: ""}
             </div>

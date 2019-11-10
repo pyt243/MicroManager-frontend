@@ -1,8 +1,14 @@
-.wrap {
+.home-wrap {
   width: 100%;
   height: auto;
+  min-height:100vh;
   padding: 0;
   margin: 0;
+  background-image: url("images/landing-mm.jpg"); /* The image used */
+  background-color: #000000;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
   /* margin-top:45px; */
 }
 .landing{
@@ -12,12 +18,8 @@
   padding:0;
   box-sizing: border-box;
   overflow:auto;
-  background-image: url("images/landing-mm.jpg"); /* The image used */
-  background-color: #000000; /* Used if the image is unavailable */
+   /* Used if the image is unavailable */
   height: 100vh; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
 }
 .home-title{
   position:relative;
