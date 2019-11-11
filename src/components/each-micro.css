@@ -32,9 +32,16 @@
   margin-top: 5vh;
   box-sizing: border-box;
   background-color: #dedefa;
+}
+
+.em-det-ms{
   border-top: 11px solid rgba(28,110,164,0.8);
   border-radius: 23px 15px 18px 20px;
 
+}
+.em-det-mf{
+  border-top: 11px solid rgba(227, 45, 32,0.8);
+  border-radius: 23px 15px 18px 20px;
 }
 .subtitle {
   width: 100%;
@@ -196,7 +203,7 @@
   display: block;
   float: left;
   margin-right: 1vh;
-  
+
 }
 .m-del a {
   text-decoration: none;

@@ -52,7 +52,7 @@ class Each_MF_Detail extends Component{
             <div className="wrap">
             <Navbar user={this.state.user} />
             <h3 className='title'>{micro.title}</h3>
-            <div className="em-content">
+            <div className="em-content em-det-mf">
             <div className="micro_keys">
               {keywords}
             </div>

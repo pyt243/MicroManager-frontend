@@ -29,7 +29,7 @@ class Each_MS extends Component{
     var keywords = micro.keywords
     var tech_stack = micro.tech_stack
     this.linkHandler = this.linkHandler.bind(this);
-    var linkButton = (<button className="m-del" id={"emub"} onClick={this.linkHandler}>Link</button>)
+    var linkButton = (<button className="m-del btn btn-primary" id={"emub"} onClick={this.linkHandler}>Link</button>)
     if(this.props.link == false){
       linkButton = null
     }
@@ -44,7 +44,7 @@ class Each_MS extends Component{
     })
   }
     return(
-        <div className='each-micro' id={"each-microid"}>
+        <div className='each-micro each-ms-comp' id={"each-microid"}>
             <div className="em-1">
             <h3 className='micro-name'>{micro.title}</h3>
             <div className="micro_keys">

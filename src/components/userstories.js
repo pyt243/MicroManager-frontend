@@ -28,28 +28,37 @@ class UserStories extends Component{
     user_stories = user_stories.map(function(user_story,index){
       return(<div class="each-us">
         <p class="micro-name">{user_story.title}</p>
-        <p class="micro-desc">
+        <p class="us-desc">
           {user_story.desc}
         </p>
         <div class="micro-but">
         <Link to={{pathname:"/updateuserstory",state:{user:this.state.user,user_story_id:user_story._id}}}>
-          <button className="m-up" id={"euub"+index}>Update</button>
+          <button className="m-up btn btn-warning" id={"euub"+index}>Update</button>
         </Link>
-        <br></br>
-        <p>Microservice links</p>
+        </div>
+        <div class="micro-but">
+        <p className="msmf-link-title">Microservice links</p>
+        <div className="msmf-linkdiv">
         {user_story.link_to_ms.map((link, index) => {return (
            <Link to={{pathname:"/eachms",state:{user:this.state.user,micro_id:link}}}>
-           <button className="m-up" id={"emub"}>{"Link "+(index+1)}</button>
+           <button className="m-up btn btn-primary" id={"emub"}>{"Link "+(index+1)}</button>
          </Link>
         )
         })}
-        <p>Microfrontend links</p>
+        </div>
+        </div>
+        <div class="micro-but">
+
+        <p className="msmf-link-title">Microfrontend links</p>
+        <div className="msmf-linkdiv">
+
         {user_story.link_to_mf.map((link,index) => {return (
            <Link to={{pathname:"/eachmf",state:{user:this.state.user,micro_id:link}}}>
-           <button className="m-up" id={"emub"}>{"Link "+(index+1)}</button>
+           <button className="m-up btn btn-primary" id={"emub"}>{"Link "+(index+1)}</button>
          </Link>
         )
         })}
+        </div>
         {/* <h1>{JSON.stringify(user_story.link_to_ms+"\n"+user_story.link_to_mf)}</h1> */}
         </div>
       </div>);
@@ -57,17 +66,16 @@ class UserStories extends Component{
     return(
       <div class="wrap">
       <Navbar user={this.state.user} />
-        <h1 class="title">User Story</h1>
-        <div class="content">
-          <h2 class="subtitle">List of User Stories</h2>
-          {user_stories}
-        </div>
+        <h1 class="title">User Stories</h1>
         <div class="add-m">
         <Link to={{pathname:"/adduserstory",state:{user:this.state.user}}}>
-          <button class="add-b">
+          <button class="us-add-but">
             Add a User Story
           </button>
         </Link>
+        </div>
+        <div class="us-content">
+          {user_stories}
         </div>
       </div>
     )

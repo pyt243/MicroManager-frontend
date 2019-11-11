@@ -24,9 +24,9 @@ class GlobalRequests extends Component {
       var but;
       if(req.status == "handled"){
         if(req.ms_mf == "microservice"){
-          but = (  <Link to={{pathname:"/eachms",state:{user:this.state.user,micro_id:req.link_msmf}}}><button className="btn btn-success er-but">View Microservice</button></Link>)
+          but = (  <Link to={{pathname:"/eachms",state:{user:this.state.user,micro_id:req.link_msmf}}}><button className="btn btn-primary er-but">View Microservice</button></Link>)
         }else{
-          but = (  <Link to={{pathname:"/eachmf",state:{user:this.state.user,micro_id:req.link_msmf}}}><button className="btn btn-success er-but">View Micro-frontend</button></Link>)
+          but = (  <Link to={{pathname:"/eachmf",state:{user:this.state.user,micro_id:req.link_msmf}}}><button className="btn btn-primary er-but">View Micro-frontend</button></Link>)
         }
       }else {
         if(req.ms_mf == "microservice"){
