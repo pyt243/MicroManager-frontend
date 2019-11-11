@@ -2,7 +2,7 @@ import React , {Component} from 'react'
 import Navbar from './navbar.js'
 import IndividualRequests from './individual_requests.js'
 import {Link} from 'react-router-dom';
-import './view_ms.css'
+import './each-micro.css'
 import axios from 'axios'
 
 class Each_MF_Detail extends Component{
@@ -31,16 +31,16 @@ class Each_MF_Detail extends Component{
 
     keywords = keywords.split(",")
     keywords = keywords.map(function(key,index){
-      return(<div className="mkey"><p>{key}</p></div>)
+      return(<div className="em-mkey"><p>{key}</p></div>)
     });
     tech_stack = tech_stack.map(function(tech,index){
-      return(<div className="mtech"><p>{tech}</p></div>)
+      return(<div className="em-mtech"><p>{tech}</p></div>)
     })
     var up = (<Link to={{pathname:"/updatemicrofrontend",state:{user:this.state.user,micro_id:this.state.micro._id}}}>
-      <button className="m-up" id={"emub"}>Update</button>
+      <button className="m-up btn btn-warning" id={"emub"}>Update</button>
     </Link>)
 
-    var del = (<button className="m-del" id={"emdb"} onClick={this.microDelete}>Delete</button>)
+    var del = (<button className="m-del btn btn-danger" id={"emdb"} onClick={this.microDelete}>Delete</button>)
 
     if(this.state.micro.developer != this.state.user._id){
       up=null;
@@ -51,30 +51,31 @@ class Each_MF_Detail extends Component{
     return(
             <div className="wrap">
             <Navbar user={this.state.user} />
-            <div className="em-1">
-            <h3 className='micro-name'>{micro.title}</h3>
+            <h3 className='title'>{micro.title}</h3>
+            <div className="em-content">
             <div className="micro_keys">
               {keywords}
             </div>
-            <p className='micro-desc'> {micro.desc}</p>
+            <p className='em-micro-desc'> {micro.desc}</p>
             <div className="tech_stack">
                 <h3 className="ts-title">Tech Stack</h3>
                 {tech_stack}
             </div>
-            <p className="micro-desc"><b>Documentation: </b>{micro.documentation}</p>
-            <p className="micro-desc"><b>MF-image: </b>{micro.mf_image}</p>
+            <p className="micro-doc"><b>Documentation: </b>{micro.documentation}</p>
+            <p className="micro-doc"><b>MF-image: </b>{micro.mf_image}</p>
 
             <div className="micro-but">
                 {up}
                 {del}
                 <Link to={{pathname:"/ind_requestmf",state:{user:this.state.user,micro_id:this.state.micro._id,micro_name:this.state.micro.title}}}>
-                  <button className="m-up" id={"mf_ir"}>Individual Request</button>
+                  <button className="m-up btn btn-primary" id={"mf_ir"}>Individual Request</button>
                 </Link>
 
 
               </div>
-              {this.state.dataReceived ? <IndividualRequests user={this.state.user} micro_id={this.state.micro._id} type="mf"/>: ""}
             </div>
+            {this.state.dataReceived ? <IndividualRequests user={this.state.user} micro_id={this.state.micro._id} type="mf"/>: ""}
+
             </div>
     )
   }

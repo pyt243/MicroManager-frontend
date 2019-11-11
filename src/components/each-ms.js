@@ -59,7 +59,7 @@ class Each_MS extends Component{
             </div>
             <div className="micro-but">
                 <Link to={{pathname:"/eachms",state:{user:this.state.user,micro_id:micro._id}}}>
-                  <button className="m-up" id={"emub"}>View Details</button>
+                  <button className="m-up btn btn-success" id={"emub"}>View Details</button>
                 </Link>
                 {linkButton}
             </div>

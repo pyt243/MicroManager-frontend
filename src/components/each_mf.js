@@ -56,13 +56,11 @@ class Each_MF extends Component{
                 <h3 className="ts-title">Tech Stack</h3>
                 {tech_stack}
             </div>
-            <p className="micro-doc"><b>Documentation: </b>{micro.documentation}</p>
-            <p className="micro-doc"><b>MF-image: </b>{micro.mf_image}</p>
 
             </div>
             <div className="micro-but">
                 <Link to={{pathname:"/eachmf",state:{user:this.state.user,micro_id:micro._id}}}>
-                  <button className="m-up" id={"emub"}>View Details</button>
+                  <button className="m-up btn btn-success" id={"emub"}>View Details</button>
                 </Link>
                 {linkButton}
             </div>

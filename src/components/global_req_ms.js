@@ -40,9 +40,10 @@ class GlobalRequestMS extends Component{
     var title = this.refs.title.value
     var desc = this.refs.desc.value
     var ms_mf = "microservice"
+    var status = "not handled"
     // var ms_id = this.state.micro_id
     // alert(user +" "+ title +" "+ desc)
-    axios.post("http://localhost:5003/add_global_request/",{ title:title ,desc:desc, user:user , ms_mf:ms_mf}).then(res => {
+    axios.post("http://localhost:5003/add_global_request/",{status:status, title:title ,desc:desc, user:user , ms_mf:ms_mf}).then(res => {
       if(res.data.status == true){
         alert("Microreq sent successfully")
       }

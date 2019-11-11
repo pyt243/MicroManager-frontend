@@ -19,6 +19,8 @@ import RequestMF from './components/requestmf.js'
 import GlobalRequestMF from "./components/global_req_mf.js"
 import GlobalRequestMS from "./components/global_req_ms.js"
 import GlobalRequests from './components/global_requests.js'
+import HandleGReqMS from './components/handle_greq_ms.js'
+import HandleGReqMF from "./components/handle_greq_mf.js"
 
 import logo from './logo.svg';
 import './App.css';
@@ -62,6 +64,8 @@ function App() {
       <Route path="/requestmf" component={GlobalRequestMF} />
       <Route path="/requestms" component={GlobalRequestMS} />
       <Route path="/requests" component={GlobalRequests} />
+      <Route path="/handle_greq_ms" component={HandleGReqMS} />
+      <Route path = "/handle_greq_mf" component={HandleGReqMF} />
     </div>
     </BrowserRouter>
   );
