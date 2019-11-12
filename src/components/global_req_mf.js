@@ -12,7 +12,7 @@ class GlobalRequestMF extends Component{
   }
   componentWillMount(){
     this.setState(this.props.location.state)
-    // axios.post('http://localhost:5000/micr',{}).then(res=>{
+    // axios.post('https://microservice-server.herokuapp.com/micr',{}).then(res=>{
     //   this.setState({micros:res.data.micros,loadStatus:true});
     //   console.log(res.data.micros)
     // })
@@ -47,7 +47,7 @@ class GlobalRequestMF extends Component{
     var ms_mf = "microfrontend"
     var status = "not handled"
     // alert(user +" "+ title +" "+ desc)
-    axios.post("http://localhost:5003/add_global_request/",{status:status, title:title ,desc:desc, user:user , ms_mf:ms_mf}).then(res => {
+    axios.post("https://global-request-server.herokuapp.com/add_global_request/",{status:status, title:title ,desc:desc, user:user , ms_mf:ms_mf}).then(res => {
       if(res.data.status == true){
         alert("Microreq sent successfully")
       }

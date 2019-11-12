@@ -13,7 +13,7 @@ class MicroFrontends extends Component{
   }
   componentWillMount(){
     this.setState(this.props.location.state)
-    axios.post('http://localhost:5002/micr-fr',{}).then(res=>{
+    axios.post('https://micro-frontend-server.herokuapp.com/micr-fr',{}).then(res=>{
       this.setState({micros:res.data.micros,loadStatus:true});
       console.log(res.data.micros)
     })
@@ -53,7 +53,7 @@ class MicroFrontends extends Component{
     var index = e.target.id[4]
     var micros = this.state.micros
     // alert(micros[e.target.id[4]]._id)
-    axios.post("http://localhost:5002/delete_one/"+micros[e.target.id[4]]._id,{}).then(res => {
+    axios.post("https://micro-frontend-server.herokuapp.com/delete_one/"+micros[e.target.id[4]]._id,{}).then(res => {
       if(res.data.status == true){
       alert("Deleted sucessfully")
       var micros = this.state.micros

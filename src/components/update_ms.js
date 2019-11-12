@@ -12,7 +12,7 @@ class UpdateMS extends Component {
 
   componentWillMount(){
     this.setState(this.props.location.state)
-    axios.post("http://localhost:5000/retrieve_one",{micro_id:this.props.location.state.micro_id}).then(res => {
+    axios.post("https://microservice-server.herokuapp.com/retrieve_one",{micro_id:this.props.location.state.micro_id}).then(res => {
       console.log(res.data.micro)
       this.setState({micro:res.data.micro,loadStatus:true})
     })
@@ -65,7 +65,7 @@ class UpdateMS extends Component {
     var code_snippet = this.refs.code_snippet.value || this.state.micro.code_snippet
     var documentation = this.refs.documentation.value || this.state.micro.documentation
     // alert(title + keywords + desc + tech_stack + code_snippet + documentation)
-    axios.post("http://localhost:5000/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
+    axios.post("https://microservice-server.herokuapp.com/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
       if(res.data.status == true){
         alert("Microservice updated successfully")
       }

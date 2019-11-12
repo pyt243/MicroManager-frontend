@@ -59,11 +59,11 @@ class HandleGReqMF extends Component{
     var mf_image = this.refs.mf_image.value
     var developer = this.state.user._id
     // alert(desc+ title+owner)
-    axios.post("http://localhost:5002/add_micro_frontend",{developer:developer, title:title ,mf_image:mf_image, desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res=> {
+    axios.post("https://micro-frontend-server.herokuapp.com/add_micro_frontend",{developer:developer, title:title ,mf_image:mf_image, desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res=> {
       if(res.data.status == false){
         alert(res.data.error.message)
       }else {
-        axios.post("http://localhost:5003/handle_request",{req_id:this.state.req_id,link_msmf:res.data.micro._id,status:"handled"}).then(res =>{
+        axios.post("https://global-request-server.herokuapp.com/handle_request",{req_id:this.state.req_id,link_msmf:res.data.micro._id,status:"handled"}).then(res =>{
           if(res.data.status == true){
             alert("Request handled Sucessfully")
           }

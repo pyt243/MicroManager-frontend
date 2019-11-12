@@ -14,7 +14,7 @@ class UpdateUS extends Component {
   componentWillMount(){
     this.setState(this.props.location.state)
     console.log("ds"+this.props.location.state.user_story_id)
-    axios.post("http://localhost:5001/retrieve_one",{us_id:this.props.location.state.user_story_id}).then(res => {
+    axios.post("https://user-story-server.herokuapp.com/retrieve_one",{us_id:this.props.location.state.user_story_id}).then(res => {
       console.log(res.data.user_story)
       this.setState({user_story:res.data.user_story,loadStatus:true})
     })
@@ -67,12 +67,12 @@ class UpdateUS extends Component {
     var priority = this.refs.priority.value || this.state.user_story.priority
     var status = this.refs.status.value || this.state.user_story.status
   //   // alert(title + keywords + desc + tech_stack + code_snippet + documentation)
-  //   axios.post("http://localhost:5000/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
+  //   axios.post("https://microservice-server.herokuapp.com/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
   //     if(res.data.status == true){
   //       alert("Microservice updated successfully")
   //     }
   //   })
-  axios.post("http://localhost:5001/modifyuserstory",{us_id:this.state.user_story._id,title:title,desc:desc,owner:owner,priority:priority,status:status}).then(res => {
+  axios.post("https://user-story-server.herokuapp.com/modifyuserstory",{us_id:this.state.user_story._id,title:title,desc:desc,owner:owner,priority:priority,status:status}).then(res => {
     if(res.data.status == true){
       alert("User story updated successfully")
     }

@@ -48,7 +48,7 @@ class SignUP extends Component{
       var name = this.refs.name.value
       var email = this.refs.email.value
       alert(username + password + name + email)
-      axios.post("http://localhost:5000/signup",{username:username,password:password,email:email,name:name}).then(res =>{
+      axios.post("https://microservice-server.herokuapp.com/signup",{username:username,password:password,email:email,name:name}).then(res =>{
         // alert(res.data.status)
         if(res.data.status == true){
           alert("User sucessfully registered")

@@ -41,7 +41,7 @@ class RequestMS extends Component{
     var desc = this.refs.desc.value
     var ms_id = this.state.micro_id
     alert(user +" "+ title +" "+ desc +" "+ ms_id)
-    axios.post("http://localhost:5000/add_individual_request/",{ title:title ,desc:desc, owner:user , ms_id:ms_id}).then(res => {
+    axios.post("https://microservice-server.herokuapp.com/add_individual_request/",{ title:title ,desc:desc, owner:user , ms_id:ms_id}).then(res => {
       if(res.data.status == true){
         alert("Microreq sent successfully")
       }

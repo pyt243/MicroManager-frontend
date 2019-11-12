@@ -11,7 +11,7 @@ class GlobalRequests extends Component {
   }
   componentWillMount(){
     this.setState({user:this.props.location.state.user})
-    axios.get("http://localhost:5003/global_requests").then(res => {
+    axios.get("https://global-request-server.herokuapp.com/global_requests").then(res => {
       if(res.data.status == true){
         this.setState({requests:res.data.requests});
         console.log(this.state.requests)

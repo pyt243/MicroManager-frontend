@@ -58,7 +58,7 @@ class AddUserStory extends Component{
     var desc = this.refs.desc.value
     var owner = this.state.user._id
     // alert(title + priority +status + desc + owner)
-    axios.post("http://localhost:5001/adduserstory",{ desc: desc, priority: priority, status: status, owner:owner, title:title }).then(res =>{
+    axios.post("https://user-story-server.herokuapp.com/adduserstory",{ desc: desc, priority: priority, status: status, owner:owner, title:title }).then(res =>{
       if(res.data.status == false){
         alert(res.data.error.message)
       }else {

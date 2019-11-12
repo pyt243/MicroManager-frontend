@@ -43,7 +43,7 @@ class GlobalRequestMS extends Component{
     var status = "not handled"
     // var ms_id = this.state.micro_id
     // alert(user +" "+ title +" "+ desc)
-    axios.post("http://localhost:5003/add_global_request/",{status:status, title:title ,desc:desc, user:user , ms_mf:ms_mf}).then(res => {
+    axios.post("https://global-request-server.herokuapp.com/add_global_request/",{status:status, title:title ,desc:desc, user:user , ms_mf:ms_mf}).then(res => {
       if(res.data.status == true){
         alert("Microreq sent successfully")
       }

@@ -12,7 +12,7 @@ class RequestMF extends Component{
   }
   componentWillMount(){
     this.setState(this.props.location.state)
-    // axios.post('http://localhost:5000/micr',{}).then(res=>{
+    // axios.post('https://microservice-server.herokuapp.com/micr',{}).then(res=>{
     //   this.setState({micros:res.data.micros,loadStatus:true});
     //   console.log(res.data.micros)
     // })
@@ -46,7 +46,7 @@ class RequestMF extends Component{
     var desc = this.refs.desc.value
     var mf_id = this.state.micro_id
     alert(user +" "+ title +" "+ desc +" "+ mf_id)
-    axios.post("http://localhost:5002/add_individual_request/",{ title:title ,desc:desc, owner:user , mf_id:mf_id}).then(res => {
+    axios.post("https://micro-frontend-server.herokuapp.com/add_individual_request/",{ title:title ,desc:desc, owner:user , mf_id:mf_id}).then(res => {
       if(res.data.status == true){
         alert("Microreq sent successfully")
       }

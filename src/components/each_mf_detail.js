@@ -16,7 +16,7 @@ class Each_MF_Detail extends Component{
   componentWillMount(){
     this.setState({user:this.props.location.state.user})
     console.log(this.props.location)
-    axios.post("http://localhost:5002/retrieve_one",{micro_id:this.props.location.state.micro_id}).then(res => {
+    axios.post("https://micro-frontend-server.herokuapp.com/retrieve_one",{micro_id:this.props.location.state.micro_id}).then(res => {
       console.log(res.data.micro)
       this.setState({micro:res.data.micro,loadStatus:true,dataReceived:true})
     })
@@ -83,7 +83,7 @@ class Each_MF_Detail extends Component{
     // var index = e.target.id[4]
     // var micros = this.state.micros
     // // alert(micros[e.target.id[4]]._id)
-    // axios.post("http://localhost:5000/delete_one/"+micros[e.target.id[4]]._id,{}).then(res => {
+    // axios.post("https://microservice-server.herokuapp.com/delete_one/"+micros[e.target.id[4]]._id,{}).then(res => {
     //   if(res.data.status == true){
     //   alert("Deleted sucessfully")
     //   var micros = this.state.micros

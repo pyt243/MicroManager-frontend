@@ -13,7 +13,7 @@ class IndividualRequests extends Component {
     this.setState({user:this.props.user})
     console.log(this.props.mf_id)
     if(this.props.type=="mf"){
-        axios.post("http://localhost:5002/retrieve_individual_requests", {mf_id:this.props.micro_id}).then(res => {
+        axios.post("https://micro-frontend-server.herokuapp.com/retrieve_individual_requests", {mf_id:this.props.micro_id}).then(res => {
         //if(res.data.status == true){
             this.setState({requests:res.data});
             console.log(JSON.stringify(res.data))
@@ -21,7 +21,7 @@ class IndividualRequests extends Component {
         })
     }
     else{
-        axios.post("http://localhost:5000/retrieve_individual_requests", {ms_id:this.props.micro_id}).then(res => {
+        axios.post("https://microservice-server.herokuapp.com/retrieve_individual_requests", {ms_id:this.props.micro_id}).then(res => {
         //if(res.data.status == true){
             this.setState({requests:res.data});
             console.log(JSON.stringify(res.data))

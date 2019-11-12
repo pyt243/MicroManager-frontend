@@ -19,7 +19,7 @@ class Search extends Component{
     componentWillMount(){
         //this.setState(this.props.location.state)
     //   this.setState(this.props.location.state)
-    //   axios.post('http://localhost:5000/micr',{}).then(res=>{
+    //   axios.post('https://microservice-server.herokuapp.com/micr',{}).then(res=>{
     //     this.setState({micros:res.data.micros,loadStatus:true});
     //     console.log(res.data.micros)
     //   })
@@ -32,7 +32,7 @@ class Search extends Component{
         //var query =  this.state.search_input
         //console.log(query)
         // alert(title + keywords + desc + tech_stack + code_snippet + documentation)
-        // axios.post("http://localhost:5000/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
+        // axios.post("https://microservice-server.herokuapp.com/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
         //   if(res.data.status == true){
         //     alert("Microservice updated successfully")
         //   }
@@ -48,7 +48,7 @@ class Search extends Component{
         //var query =  this.state.search_input
         //console.log(query)
         // alert(title + keywords + desc + tech_stack + code_snippet + documentation)
-        // axios.post("http://localhost:5000/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
+        // axios.post("https://microservice-server.herokuapp.com/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
         //   if(res.data.status == true){
         //     alert("Microservice updated successfully")
         //   }
@@ -64,14 +64,14 @@ class Search extends Component{
         //var query =  this.state.search_input
         //console.log(query)
         // alert(title + keywords + desc + tech_stack + code_snippet + documentation)
-        // axios.post("http://localhost:5000/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
+        // axios.post("https://microservice-server.herokuapp.com/update_micro/"+this.state.micro._id,{ title:title , desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
         //   if(res.data.status == true){
         //     alert("Microservice updated successfully")
         //   }
         // })
         this.setState({micros:[]})
         e.preventDefault()
-        axios.post("http://localhost:5002/srch/",{search_input:this.state.search_input,dropdown_value:this.state.dropdown_value})
+        axios.post("https://micro-frontend-server.herokuapp.com/srch/",{search_input:this.state.search_input,dropdown_value:this.state.dropdown_value})
         .then(res=>{
             console.log(res.data)
 

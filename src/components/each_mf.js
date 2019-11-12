@@ -12,13 +12,13 @@ class Each_MF extends Component{
   }
   linkHandler(e)
   {
-    axios.post("http://localhost:5001/link_us",{micro_id:this.props.micro_id,us_id:this.props.us_id,micro_type:"mf"}).then(res => {
+    axios.post("https://user-story-server.herokuapp.com/link_us",{micro_id:this.props.micro_id,us_id:this.props.us_id,micro_type:"mf"}).then(res => {
       console.log("MF linked sucess")
     })
   }
   componentWillMount(){
     this.setState({user:this.props.user})
-    axios.post("http://localhost:5002/retrieve_one",{micro_id:this.props.micro_id}).then(res => {
+    axios.post("https://micro-frontend-server.herokuapp.com/retrieve_one",{micro_id:this.props.micro_id}).then(res => {
       console.log(res.data.micro)
       this.setState({micro:res.data.micro,loadStatus:true})
     })

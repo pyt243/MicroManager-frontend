@@ -13,12 +13,12 @@ class UserStories extends Component{
   }
   componentWillMount(){
     this.setState(this.props.location.state)
-    axios.post('http://localhost:5001/getuserstory',{owner:this.state.user._id}).then(res=>{
+    axios.post('https://user-story-server.herokuapp.com/getuserstory',{owner:this.state.user._id}).then(res=>{
         console.log(JSON.stringify(res.data.user_stories))
         console.log(res.data)
         this.setState({user_stories:res.data.user_stories});
     })
-    // axios.post('http://localhost:5001/ms_mf_links',{us_id:this.state.us_id}).then(res=>{
+    // axios.post('https://user-story-server.herokuapp.com/ms_mf_links',{us_id:this.state.us_id}).then(res=>{
     //     console.log(JSON.stringify(res.data.user_stories))
     //     this.setState({user_stories:res.data.user_stories});
     // })
@@ -91,7 +91,7 @@ class UserStories extends Component{
     var us = this.state.user_stories
     us.splice(index,1)
     this.setState({user_stories:us})
-    axios.post("http://localhost:5001/removeuserstory",{us_id:_id}).then(res =>{
+    axios.post("https://user-story-server.herokuapp.com/removeuserstory",{us_id:_id}).then(res =>{
       if(res.data.status == true){
         alert("User story deleted successfully")
       }

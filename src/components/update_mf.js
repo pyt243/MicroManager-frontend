@@ -12,7 +12,7 @@ class UpdateMF extends Component {
 
   componentWillMount(){
     this.setState(this.props.location.state)
-    axios.post("http://localhost:5002/retrieve_one",{micro_id:this.props.location.state.micro_id}).then(res => {
+    axios.post("https://micro-frontend-server.herokuapp.com/retrieve_one",{micro_id:this.props.location.state.micro_id}).then(res => {
       console.log(res.data.micro)
       this.setState({micro:res.data.micro,loadStatus:true})
     })
@@ -69,7 +69,7 @@ class UpdateMF extends Component {
     var documentation = this.refs.documentation.value || this.state.micro.documentation
     var mf_image = this.refs.mf_image.value || this.state.micro.mf_image
     // alert(title + keywords + desc + tech_stack + code_snippet + documentation)
-    axios.post("http://localhost:5002/update_mf/"+this.state.micro._id,{ title:title ,mf_image:mf_image, desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
+    axios.post("https://micro-frontend-server.herokuapp.com/update_mf/"+this.state.micro._id,{ title:title ,mf_image:mf_image, desc:desc , keywords:keywords, documentation:documentation, code_snippet:code_snippet, tech_stack:tech_stack, owner:owner}).then(res => {
       if(res.data.status == true){
         alert("Micro-frontend updated successfully")
       }
