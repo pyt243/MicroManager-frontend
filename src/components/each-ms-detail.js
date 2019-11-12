@@ -51,11 +51,11 @@ class Each_MS_Detail extends Component{
             <Navbar user={this.state.user} />
             <h3 className='title'>{micro.title}</h3>
             <div className="em-content em-det-ms">
-            <div className="micro_keys">
+            <div className="em-micro_keys">
               {keywords}
             </div>
             <p className='em-micro-desc'> {micro.desc}</p>
-            <div className="tech_stack">
+            <div className="em-tech_stack">
                 <h3 className="ts-title">Tech Stack</h3>
                 {tech_stack}
             </div>

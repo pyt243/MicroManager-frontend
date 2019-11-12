@@ -54,7 +54,7 @@
   box-sizing: border-box;
 }
 
-.micro_keys{
+.em-micro_keys{
   width:100%;
   margin:0;
   margin-top:2vh;
@@ -63,7 +63,7 @@
   height:auto;
   overflow:auto;
 }
-.tech_stack{
+.em-tech_stack{
   width:100%;
   margin:0;
   margin-top:2vh;
@@ -115,7 +115,7 @@
   border: 2px solid #01112b;
   border-radius: 5px;
 }
-.mtech p{
+.em-mtech p{
   height:3vh;
   box-sizing: border-box;
   margin:0;
@@ -127,7 +127,7 @@
   font-size:2.5vh;
   text-align: center;
 }
-.mkey p{
+.em-mkey p{
   height:3vh;
   box-sizing: border-box;
   margin:0;

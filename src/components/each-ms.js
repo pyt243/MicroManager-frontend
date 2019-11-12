@@ -51,8 +51,8 @@ class Each_MS extends Component{
               {keywords}
             </div>
             <p className='micro-desc'> {micro.desc}</p>
+            <h3 className="ts-title">Tech Stack</h3>
             <div className="tech_stack">
-                <h3 className="ts-title">Tech Stack</h3>
                 {tech_stack}
             </div>
             <p className="micro-doc"><b>Documentation: </b>{micro.documentation}</p>
