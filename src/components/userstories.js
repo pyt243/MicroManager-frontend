@@ -25,6 +25,7 @@ class UserStories extends Component{
   }
   render(){
     var user_stories = this.state.user_stories
+    this.us_delete = this.us_delete.bind(this)
     user_stories = user_stories.map(function(user_story,index){
       return(<div class="each-us">
         <p class="micro-name">{user_story.title}</p>
@@ -35,6 +36,7 @@ class UserStories extends Component{
         <Link to={{pathname:"/updateuserstory",state:{user:this.state.user,user_story_id:user_story._id}}}>
           <button className="m-up btn btn-warning" id={"euub"+index}>Update</button>
         </Link>
+        <button className="m-del btn btn-danger" id={"eudb"+index} onClick={this.us_delete}>Delete</button>
         </div>
         <div class="micro-but">
         <p className="msmf-link-title">Microservice links</p>
@@ -43,6 +45,7 @@ class UserStories extends Component{
            <Link to={{pathname:"/eachms",state:{user:this.state.user,micro_id:link}}}>
            <button className="m-up btn btn-primary" id={"emub"}>{"Link "+(index+1)}</button>
          </Link>
+
         )
         })}
         </div>
@@ -79,6 +82,20 @@ class UserStories extends Component{
         </div>
       </div>
     )
+  }
+  us_delete(e){
+    var index = e.target.id[4]
+    var _id = this.state.user_stories[index]._id
+    // alert(_id)
+    // alert(index)
+    var us = this.state.user_stories
+    us.splice(index,1)
+    this.setState({user_stories:us})
+    axios.post("http://localhost:5001/removeuserstory",{us_id:_id}).then(res =>{
+      if(res.data.status == true){
+        alert("User story deleted successfully")
+      }
+    })
   }
 }
 export default UserStories
