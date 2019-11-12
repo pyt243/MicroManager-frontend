@@ -12,7 +12,7 @@ class SignUP extends Component{
     return(
       <div className="wrap">
       <Navbar user={this.state.user}/>
-      <h1 class="su-title">Register</h1>
+      <h1 class="title">Register</h1>
       <div class="reg-form col-lg-5 col-md-7 col-sm-11">
         <form onSubmit={this.signup}>
           <div class="form-group">
@@ -31,7 +31,7 @@ class SignUP extends Component{
             <input type="password" placeholder="Re-enter Password" class="form-control" name="pass2" required ref="repassword"/>
           </div>
           <div class="form-group">
-          <input type="submit" class="btn btn-outline-success" />
+          <input type="submit" class="btn btn-success" />
           </div>
         </form>
       </div>
