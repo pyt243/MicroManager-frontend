@@ -85,3 +85,12 @@
 .not{
   color:red;
 }
+.filter-div{
+  width:100%;
+  height:auto;
+  padding:2vh;
+}
+.filter-div button.btn{
+  display:block;
+  margin:0 auto;
+}

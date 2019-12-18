@@ -7,7 +7,9 @@ import axios from 'axios'
 class GlobalRequests extends Component {
   state={
     user:{username:"noone"},
-    requests:[]
+    requests:[],
+    butStatus:false,
+    butText:"View My Requests"
   }
   componentWillMount(){
     this.setState({user:this.props.location.state.user})
@@ -19,8 +21,12 @@ class GlobalRequests extends Component {
     })
   }
   render(){
-    var requests = this.state.requests
+    this.filter = this.filter.bind(this)
+    var requests = this.state.requests.reverse()
     requests = requests.map(function(req,index){
+      if(this.state.butStatus && req.user != this.state.user._id){
+        return null;
+      }
       var but;
       if(req.status == "handled"){
         if(req.ms_mf == "microservice"){
@@ -49,12 +55,23 @@ class GlobalRequests extends Component {
       <div className="wrap">
       <Navbar user={this.state.user} />
       <h1 className="req-title">Global Requests</h1>
+      <div className="filter-div">
+      <button className="btn btn-primary" onClick={this.filter}>{this.state.butText}</button>
+      </div>
       <div className="content">
       {requests}
       </div>
       </div>
     )
   }
+  filter(e){
+    if(this.state.butStatus == false){
+      this.setState({butStatus:true,butText:"View All Requests"})
+    }else {
+      this.setState({butStatus:false,butText:"View My Requests"})
+    }
+  }
 }
+
 
 export default GlobalRequests
