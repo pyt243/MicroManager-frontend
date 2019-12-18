@@ -9,7 +9,9 @@ import axios from 'axios'
 class MicroFrontends extends Component{
   state={
     user:this.props.location.state.user,
-    loadStatus:false
+    loadStatus:false,
+    butStatus:false,
+    butText:"View My Frontends"
   }
   componentWillMount(){
     this.setState(this.props.location.state)
@@ -21,10 +23,13 @@ class MicroFrontends extends Component{
   render(){
     this.microUpdate = this.microUpdate.bind(this)
     this.microDelete = this.microDelete.bind(this)
+    this.filter = this.filter.bind(this)
     var micros = this.state.micros
     if(this.state.loadStatus==true){
     micros = micros.map(function(micro,index){
-
+      if(this.state.butStatus && micro.developer != this.state.user._id){
+        return null
+      }
       return(
           <Each_MF user={this.state.user} micro_id={micro._id} link={false}/>
       )
@@ -33,7 +38,6 @@ class MicroFrontends extends Component{
     return(
       <div className="wrap">
       <Navbar user={this.state.user} />
-          <div className="content">
           <h2 className="title">List of Micro-frontends</h2>
 
           <div className="add-m">
@@ -44,6 +48,10 @@ class MicroFrontends extends Component{
               <button className="add-b reqm btn btn-light">Request MicroFrontend</button>
           </Link>
           </div>
+          <div className="filter-div">
+          <button className="btn btn-primary" onClick={this.filter}>{this.state.butText}</button>
+          </div>
+          <div className="content">
             {micros}
           </div>
       </div>
@@ -69,6 +77,13 @@ class MicroFrontends extends Component{
   microUpdate(e){
     var index = e.target.id[4]
     alert(this.state.micros[index]._id)
+  }
+  filter(e){
+    if(this.state.butStatus == false){
+      this.setState({butStatus:true,butText:"View All Frontends"})
+    }else {
+      this.setState({butStatus:false,butText:"View My Frontends"})
+    }
   }
 }
 export default MicroFrontends

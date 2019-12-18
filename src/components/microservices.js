@@ -9,7 +9,9 @@ import axios from 'axios'
 class Microservices extends Component{
   state={
     user:this.props.location.state.user,
-    loadStatus:false
+    loadStatus:false,
+    butStatus:false,
+    butText:"View My Services"
   }
   componentWillMount(){
     this.setState(this.props.location.state)
@@ -20,9 +22,13 @@ class Microservices extends Component{
   }
   render(){
     this.microUpdate = this.microUpdate.bind(this)
+    this.filter = this.filter.bind(this)
     var micros = this.state.micros
     if(this.state.loadStatus==true){
     micros = micros.map(function(micro,index){
+      if(this.state.butStatus && micro.developer != this.state.user._id){
+        return null
+      }
       return(
           <Each_MS user={this.state.user} micro_id={micro._id} link={false}/>
       )
@@ -41,6 +47,9 @@ class Microservices extends Component{
               <button className="add-b reqm btn btn-light">Request a MicroService</button>
           </Link>
           </div>
+          <div className="filter-div">
+          <button className="btn btn-primary" onClick={this.filter}>{this.state.butText}</button>
+          </div>
           <div className="content">
             {micros}
           </div>
@@ -50,6 +59,13 @@ class Microservices extends Component{
   microUpdate(e){
     var index = e.target.id[4]
     alert(this.state.micros[index]._id)
+  }
+  filter(e){
+    if(this.state.butStatus == false){
+      this.setState({butStatus:true,butText:"View All Services"})
+    }else {
+      this.setState({butStatus:false,butText:"View My Services"})
+    }
   }
 }
 export default Microservices
