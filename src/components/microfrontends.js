@@ -44,12 +44,10 @@ class MicroFrontends extends Component{
           <Link to={{pathname:"/addmicrofrontend",state:{user:this.state.user}}}>
               <button className="add-b adm btn btn-light">Add a Micro-Frontend</button>
           </Link>
+          <button className="btn btn-primary filt-but" onClick={this.filter}>{this.state.butText}</button>
           <Link to={{pathname:"/requestmf",state:{user:this.state.user}}}>
               <button className="add-b reqm btn btn-light">Request MicroFrontend</button>
           </Link>
-          </div>
-          <div className="filter-div">
-          <button className="btn btn-primary" onClick={this.filter}>{this.state.butText}</button>
           </div>
           <div className="content">
             {micros}
