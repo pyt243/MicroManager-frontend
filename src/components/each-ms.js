@@ -47,6 +47,7 @@ class Each_MS extends Component{
   render(){
     /*
     This function is returns the content that is to displyed by the micro-frontend.
+    The data that was requested from the backend microservice and saved in the state is structured in the form of HTML.
     */
     var micro = this.state.micro
     var keywords = micro.keywords
@@ -89,6 +90,9 @@ class Each_MS extends Component{
         </div>
     )
   }
+  /*
+  Sometimes, micro-frontends listen to some events and perform actions as well, the function(s) presen below are normal event-handlers from react.
+  */
   linkHandler(e)
   {
     console.log("ds usid"+this.props.us_id)
@@ -98,4 +102,7 @@ class Each_MS extends Component{
   }
 }
 
+/*
+Component here is exported so that it can be embedded in other , larger Components
+*/
 export default Each_MS
